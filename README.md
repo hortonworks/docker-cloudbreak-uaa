@@ -2,7 +2,7 @@
 
 The sample `uaa.yml` configuration tells the UAA server to store its data in a postgresql database. If you change it to something else, then skip to the next chapter.
 
-To easily create a postgresql database on your local dev environment, use Docker. The following command creates a local (postgresql database)[https://github.com/Painted-Fox/docker-postgresql] named *uaa*, with a database admin called *uaaadmin* (password: *uaaadmin*).
+To easily create a postgresql database on your local dev environment, use Docker. The following command creates a local [postgresql database](https://github.com/Painted-Fox/docker-postgresql) named *uaa*, with a database admin called *uaaadmin* (password: *uaaadmin*).
 
 ```
 docker run -d --name="uaadb"  -e USER="uaaadmin" -e DB="uaa" -e PASS="uaaadmin" paintedfox/postgresql 
