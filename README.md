@@ -23,5 +23,5 @@ If you are using boot2docker on OSX, host volume sharing only shares the host fo
 To get the configuration from an URL:
 
 ```
-docker run -d --link uaadb:db -e UAA_CONFIG_URL=http://my-uaa-config-location.com/ sequenceiq/uaa:1.8.1
+docker run -d --link uaadb:db -e UAA_CONFIG_URL=https://raw.githubusercontent.com/sequenceiq/docker-uaa/master/uaa.yml sequenceiq/uaa:1.8.1
 ```
