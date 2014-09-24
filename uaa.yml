@@ -1,22 +1,22 @@
 spring_profiles: postgresql
- 
+
 database:
   driverClassName: org.postgresql.Driver
   url: jdbc:postgresql://${DB_PORT_5432_TCP_ADDR}:${DB_PORT_5432_TCP_PORT}/${DB_ENV_DB}
   username: ${DB_ENV_USER:root}
   password: ${DB_ENV_PASS:changeme}
- 
+
 oauth:
   client:
     override: true
     autoapprove:
-      - mycommandlineshell
+      - myresourceserver_shell
   clients:
     mywebapp:
       id: mywebapp
       secret: changeme
       authorized-grant-types: authorization_code
-      scope: openid,password.write,myresource.scope1,myresource.scope2
+      scope: myresourceserver.scope1,myresourceserver.scope2,openid,password.write
       authorities: uaa.none
       redirect-uri: http://localhost:3000/authorize
     myresourceserver:
@@ -25,15 +25,16 @@ oauth:
       authorized-grant-types: client_credentials
       scope: scim.read,scim.write,password.write
       authorities: uaa.resource,scim.read,scim.write,password.write
-    mycommandlineshell:
-      id: mycommandlineshell
+    myresourceserver_shell:
+      id: myresourceserver_shell
       authorized-grant-types: implicit
-      scope:openid,password.write,myresource.scope1,myresource.scope2¬  
+      scope: myresourceserver.scope1,myresourceserver.scope2,openid,password.write 
       authorities: uaa.none
-      redirect-uri: http://my.shell
- 
+      redirect-uri: http://myresourceserver.shell
+
 scim:
   username_pattern: '[a-z0-9+\-_.@]+'
   users:
-    - paul|wombat|paul@test.org|Paul|Smith|openid,myresource.scope1,myresource.scope2
-    - stefan|wallaby|stefan@test.org|Stefan|Schmidt|openid,myresource.scope1,myresource.scope2
+    - paul|wombat|paul@test.org|Paul|Smith|openid,myresourceserver.scope1,myresourceserver.scope2
+    - stefan|wallaby|stefan@test.org|Stefan|Schmidt|openid,myresourceserver.scope1,myresourceserver.scope2
+
