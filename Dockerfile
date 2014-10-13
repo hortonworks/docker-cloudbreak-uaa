@@ -5,7 +5,7 @@ ENV UAA_CONFIG_PATH /uaa
 ENV CATALINA_HOME /tomcat
 
 ADD run.sh /tmp/
-ADD dev.yml /tmp/uaa.yml
+ADD dev.yml /uaa/uaa.yml
 RUN chmod +x /tmp/run.sh
 
 RUN wget -q https://archive.apache.org/dist/tomcat/tomcat-7/v7.0.55/bin/apache-tomcat-7.0.55.tar.gz
