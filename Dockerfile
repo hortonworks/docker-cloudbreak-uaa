@@ -5,6 +5,7 @@ ENV UAA_CONFIG_PATH /uaa
 ENV CATALINA_HOME /tomcat
 
 ADD run.sh /tmp/
+ADD dev.yml /tmp/
 RUN chmod +x /tmp/run.sh
 
 RUN wget -q https://archive.apache.org/dist/tomcat/tomcat-7/v7.0.55/bin/apache-tomcat-7.0.55.tar.gz
@@ -24,4 +25,4 @@ VOLUME ["/uaa"]
 
 EXPOSE 8080
 
-CMD ["/tmp/run.sh"] 
+CMD ["/tmp/run.sh"]
