@@ -13,6 +13,12 @@ oauth:
       - cloudbreak_shell
       - periscope-client
   clients:
+     sultans:
+      id: sultans
+      secret: sultanssecret
+      authorized-grant-types: client_credentials
+      scope: scim.read,scim.write,password.write
+      authorities: uaa.resource,scim.read,scim.write,password.write
     admin:
       id: admin
       secret: adminsecret
