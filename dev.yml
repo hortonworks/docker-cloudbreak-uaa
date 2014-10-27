@@ -2,9 +2,9 @@ spring_profiles: postgresql
 
 database:
   driverClassName: org.postgresql.Driver
-  url: jdbc:postgresql://${DB_PORT_5432_TCP_ADDR}:${DB_PORT_5432_TCP_PORT}/${DB_ENV_DB}
-  username: ${DB_ENV_USER:root}
-  password: ${DB_ENV_PASS:changeme}
+  url: jdbc:postgresql://${DB_PORT_5432_TCP_ADDR}:${DB_PORT_5432_TCP_PORT}/${DB_ENV_DB:postgres}
+  username: ${DB_ENV_USER:postgres}
+  password: ${DB_ENV_PASS:}
 
 oauth:
   client:
@@ -13,18 +13,12 @@ oauth:
       - cloudbreak_shell
       - periscope-client
   clients:
-     sultans:
+    sultans:
       id: sultans
       secret: sultanssecret
       authorized-grant-types: client_credentials
-      scope: scim.read,scim.write,password.write
-      authorities: uaa.resource,scim.read,scim.write,password.write
-    admin:
-      id: admin
-      secret: adminsecret
-      authorized-grant-types: client_credentials
       scope: none
-      authorities: uaa.admin,scim.write,scim.read,clients.read,clients.write,clients.secret
+      authorities: scim.write,scim.read,clients.read,clients.write,clients.secret,password.write
     uluwatu:
       id: uluwatu
       secret: uluwatusecret
