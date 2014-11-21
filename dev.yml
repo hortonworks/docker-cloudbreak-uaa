@@ -23,7 +23,7 @@ oauth:
       id: uluwatu
       secret: uluwatusecret
       authorized-grant-types: authorization_code
-      scope: cloudbreak.templates,cloudbreak.blueprints,cloudbreak.credentials,cloudbreak.stacks,openid,password.write
+      scope: cloudbreak.templates,cloudbreak.blueprints,cloudbreak.credentials,cloudbreak.stacks,openid,password.write,cloudbreak.events,cloudbreak.usages.global,cloudbreak.usages.account,cloudbreak.usages.user
       authorities: uaa.none
       redirect-uri: http://localhost:3000/authorize
     cloudbreak:
@@ -41,12 +41,18 @@ oauth:
     periscope-client:
       id: periscope-client
       authorized-grant-types: implicit
-      scope: cloudbreak.templates,cloudbreak.blueprints,cloudbreak.credentials,cloudbreak.stacks,openid,password.write
+      scope: cloudbreak.stacks,openid,periscope.cluster
       authorities: uaa.none
       redirect-uri: http://periscope.client
+    periscope:
+      id: periscope
+      secret: periscopesecret
+      authorized-grant-types: client_credentials
+      scope: none
+      authorities: cloudbreak.autoscale,uaa.resource,scim.read
 
 scim:
   username_pattern: '[a-z0-9+\-_.@]+'
   users:
-    - admin@sequenceiq.com|seqadmin|admin@sequenceiq.com|Default|User|openid,cloudbreak.templates,cloudbreak.blueprints,cloudbreak.credentials,cloudbreak.stacks,sequenceiq.cloudbreak.admin,sequenceiq.cloudbreak.user,sequenceiq.account.abcd1234.SequenceIQ
-    - paul@sequenceiq.com|paul|paul@sequenceiq.com|Paul|Smith|openid,cloudbreak.templates,cloudbreak.blueprints,cloudbreak.credentials,cloudbreak.stacks,sequenceiq.cloudbreak.user,sequenceiq.account.abcd1234.SequenceIQ
+    - admin@sequenceiq.com|seqadmin|admin@sequenceiq.com|Default|User|openid,cloudbreak.templates,cloudbreak.blueprints,cloudbreak.credentials,cloudbreak.stacks,sequenceiq.cloudbreak.admin,sequenceiq.cloudbreak.user,sequenceiq.account.abcd1234.SequenceIQ,,periscope.cluster,cloudbreak.events,cloudbreak.usages.global,cloudbreak.usages.account,cloudbreak.usages.user
+    - paul@sequenceiq.com|paul|paul@sequenceiq.com|Paul|Smith|openid,cloudbreak.templates,cloudbreak.blueprints,cloudbreak.credentials,cloudbreak.stacks,sequenceiq.cloudbreak.user,sequenceiq.account.abcd1234.SequenceIQ,,periscope.cluster,cloudbreak.events,cloudbreak.usages.global,cloudbreak.usages.account,cloudbreak.usages.user
