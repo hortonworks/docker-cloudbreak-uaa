@@ -22,9 +22,9 @@ oauth:
     uluwatu:
       id: uluwatu
       secret: uluwatusecret
-      authorized-grant-types: authorization_code
+      authorized-grant-types: authorization_code,client_credentials
       scope: cloudbreak.templates,cloudbreak.blueprints,cloudbreak.credentials,cloudbreak.stacks,openid,password.write,cloudbreak.events,cloudbreak.usages.global,cloudbreak.usages.account,cloudbreak.usages.user
-      authorities: uaa.none
+      authorities: cloudbreak.subscribe
       redirect-uri: http://localhost:3000/authorize
     cloudbreak:
       id: cloudbreak
