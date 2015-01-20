@@ -54,5 +54,5 @@ oauth:
 scim:
   username_pattern: '[a-z0-9+\-_.@]+'
   users:
-    - admin@sequenceiq.com|seqadmin|admin@sequenceiq.com|Default|User|openid,cloudbreak.templates,cloudbreak.blueprints,cloudbreak.credentials,cloudbreak.stacks,sequenceiq.cloudbreak.admin,sequenceiq.cloudbreak.user,sequenceiq.account.abcd1234.SequenceIQ,,periscope.cluster,cloudbreak.events,cloudbreak.usages.global,cloudbreak.usages.account,cloudbreak.usages.user
-    - paul@sequenceiq.com|paul|paul@sequenceiq.com|Paul|Smith|openid,cloudbreak.templates,cloudbreak.blueprints,cloudbreak.credentials,cloudbreak.stacks,sequenceiq.cloudbreak.user,sequenceiq.account.abcd1234.SequenceIQ,,periscope.cluster,cloudbreak.events,cloudbreak.usages.global,cloudbreak.usages.account,cloudbreak.usages.user
+    - admin@sequenceiq.com|seqadmin|admin@sequenceiq.com|Default|User|openid,cloudbreak.templates,cloudbreak.blueprints,cloudbreak.credentials,cloudbreak.stacks,sequenceiq.cloudbreak.admin,sequenceiq.cloudbreak.user,sequenceiq.account.abcd1234.SequenceIQ,periscope.cluster,cloudbreak.events,cloudbreak.usages.global,cloudbreak.usages.account,cloudbreak.usages.user
+    - paul@sequenceiq.com|paul|paul@sequenceiq.com|Paul|Smith|openid,cloudbreak.templates,cloudbreak.blueprints,cloudbreak.credentials,cloudbreak.stacks,sequenceiq.cloudbreak.user,sequenceiq.account.abcd1234.SequenceIQ,periscope.cluster,cloudbreak.events,cloudbreak.usages.global,cloudbreak.usages.account,cloudbreak.usages.user
