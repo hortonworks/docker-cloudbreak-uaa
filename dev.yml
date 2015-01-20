@@ -18,7 +18,7 @@ oauth:
       secret: sultanssecret
       authorized-grant-types: client_credentials
       scope: scim.read,scim.write,password.write
-      authorities: scim.write,scim.read,clients.read,clients.write,clients.secret,password.write
+      authorities: uaa.resource,scim.write,scim.read,password.write
     uluwatu:
       id: uluwatu
       secret: uluwatusecret
