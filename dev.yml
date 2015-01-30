@@ -23,7 +23,7 @@ oauth:
       id: uluwatu
       secret: uluwatusecret
       authorized-grant-types: authorization_code,client_credentials
-      scope: cloudbreak.templates,cloudbreak.blueprints,cloudbreak.credentials,cloudbreak.stacks,openid,password.write,cloudbreak.events,cloudbreak.usages.global,cloudbreak.usages.account,cloudbreak.usages.user,periscope.cluster
+      scope: cloudbreak.templates,cloudbreak.blueprints,cloudbreak.credentials,cloudbreak.stacks,openid,password.write,cloudbreak.events,cloudbreak.usages.global,cloudbreak.usages.account,cloudbreak.usages.user,periscope.cluster,cloudbreak.recipes
       authorities: cloudbreak.subscribe
       redirect-uri: http://localhost:3000/authorize
     cloudbreak:
@@ -35,7 +35,7 @@ oauth:
     cloudbreak_shell:
       id: cloudbreak_shell
       authorized-grant-types: implicit
-      scope: cloudbreak.templates,cloudbreak.blueprints,cloudbreak.credentials,cloudbreak.stacks,openid,password.write
+      scope: cloudbreak.templates,cloudbreak.blueprints,cloudbreak.credentials,cloudbreak.stacks,openid,password.write,cloudbreak.recipes
       authorities: uaa.none
       redirect-uri: http://cloudbreak.shell
     periscope-client:
