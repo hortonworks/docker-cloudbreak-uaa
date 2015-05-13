@@ -21,7 +21,7 @@ RUN rm -rf /tomcat/webapps/*
 ADD cloudfoundry-identity-uaa-1.8.1.war /tomcat/webapps/
 RUN mv /tomcat/webapps/cloudfoundry-identity-uaa-1.8.1.war /tomcat/webapps/ROOT.war
 
-VOLUME ["/uaa"]
+#VOLUME ["/uaa"]
 
 EXPOSE 8080
 
