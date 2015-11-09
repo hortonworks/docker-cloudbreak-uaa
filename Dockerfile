@@ -1,4 +1,4 @@
-FROM java:8
+FROM java:openjdk-8u66-jre
 MAINTAINER SequenceIQ
 
 ENV UAA_CONFIG_PATH /uaa
