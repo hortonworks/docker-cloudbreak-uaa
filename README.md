@@ -15,7 +15,7 @@ To run the UAA server, first you'll need a configuration file. UAA accepts a YAM
 This docker container reads the configuration file `uaa.yml` from the `/uaa` folder. The container can accept configuration files from an URL, or from a shared volume. To run a UAA server with a configuration file in a shared volume, run this command:
 
 ```
-docker run -d --link uaa-db:db -v /tmp/uaa:/uaa:rw sequenceiq/uaa:1.8.1
+docker run -d --link uaa-db:db -v /tmp/uaa:/uaa:rw hortonworks/cloudbreak-uaa:2.7.1
 ```
 
 If you are using boot2docker on OSX, host volume sharing only shares the host folder in boot2docker, so make sure your configuration is in boot2docker's `/tmp/uaa` folder.
@@ -23,5 +23,5 @@ If you are using boot2docker on OSX, host volume sharing only shares the host fo
 To get the configuration from an URL:
 
 ```
-docker run -d --link uaa-db:db -e UAA_CONFIG_URL=https://raw.githubusercontent.com/sequenceiq/docker-uaa/master/uaa.yml sequenceiq/uaa:1.8.1
+docker run -d --link uaa-db:db -e UAA_CONFIG_URL=https://raw.githubusercontent.com/sequenceiq/docker-uaa/master/uaa.yml hortonworks/cloudbreak-uaa:2.7.1
 ```
