@@ -1,5 +1,5 @@
 FROM java:openjdk-8u66-jre
-MAINTAINER SequenceIQ
+MAINTAINER Hortonworks
 
 ENV UAA_CONFIG_PATH /uaa
 ENV CATALINA_HOME /tomcat
