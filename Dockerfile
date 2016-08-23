@@ -18,8 +18,8 @@ RUN mkdir /tomcat
 RUN mv apache-tomcat-8.0.28/* /tomcat
 RUN rm -rf /tomcat/webapps/*
 
-ADD cloudfoundry-identity-uaa-2.7.1.war /tomcat/webapps/
-RUN mv /tomcat/webapps/cloudfoundry-identity-uaa-2.7.1.war /tomcat/webapps/ROOT.war
+ADD cloudfoundry-identity-uaa-3.6.0.war /tomcat/webapps/
+RUN mv /tomcat/webapps/cloudfoundry-identity-uaa-3.6.0.war /tomcat/webapps/ROOT.war
 
 #VOLUME ["/uaa"]
 
