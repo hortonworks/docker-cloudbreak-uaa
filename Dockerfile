@@ -18,8 +18,8 @@ RUN mkdir /tomcat
 RUN mv apache-tomcat-8.0.28/* /tomcat
 RUN rm -rf /tomcat/webapps/*
 
-ADD https://github.com/sequenceiq/uaa/releases/download/3.6.3/cloudfoundry-identity-uaa-3.6.3.war /tomcat/webapps/
-RUN mv /tomcat/webapps/cloudfoundry-identity-uaa-3.6.3.war /tomcat/webapps/ROOT.war
+ADD https://github.com/sequenceiq/uaa/releases/download/3.9.3/cloudfoundry-identity-uaa-3.9.3.war /tomcat/webapps/
+RUN mv /tomcat/webapps/cloudfoundry-identity-uaa-3.9.3.war /tomcat/webapps/ROOT.war
 
 #VOLUME ["/uaa"]
 
