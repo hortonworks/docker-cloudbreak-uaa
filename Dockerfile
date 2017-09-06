@@ -1,4 +1,4 @@
-FROM java:openjdk-8u111-jre
+FROM openjdk:8u141-jre
 MAINTAINER Hortonworks
 
 ENV UAA_CONFIG_PATH /uaa
