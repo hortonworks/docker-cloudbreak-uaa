@@ -21,6 +21,8 @@ RUN rm -rf /tomcat/webapps/*
 ADD https://github.com/sequenceiq/uaa/releases/download/3.6.5/cloudfoundry-identity-uaa-3.6.5.war /tomcat/webapps/
 RUN mv /tomcat/webapps/cloudfoundry-identity-uaa-3.6.5.war /tomcat/webapps/ROOT.war
 
+ADD postgresql-42.0.0.jar /tomcat/lib/
+
 #VOLUME ["/uaa"]
 
 EXPOSE 8080
