@@ -25,6 +25,10 @@ ADD postgresql-42.0.0.jar /tomcat/lib/
 
 #VOLUME ["/uaa"]
 
+# add jmx exporter
+ADD https://s3.eu-central-1.amazonaws.com/hortonworks-prometheus/jmx_prometheus_javaagent-0.10.jar /jmx_prometheus_javaagent.jar
+ADD jmx-config.yaml /jmx-config.yaml
+
 EXPOSE 8080
 
 CMD ["/tmp/run.sh"]
