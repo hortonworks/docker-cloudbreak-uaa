@@ -23,6 +23,10 @@ RUN mv /tomcat/webapps/cloudfoundry-identity-uaa-4.5.0.war /tomcat/webapps/ROOT.
 
 #VOLUME ["/uaa"]
 
+# add jmx exporter
+ADD https://s3.eu-central-1.amazonaws.com/hortonworks-prometheus/jmx_prometheus_javaagent-0.10.jar /jmx_prometheus_javaagent.jar
+ADD jmx-config.yaml /jmx-config.yaml
+
 EXPOSE 8080
 
 CMD ["/tmp/run.sh"]
