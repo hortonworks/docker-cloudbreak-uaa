@@ -7,8 +7,10 @@
 
 [ -n "$UAA_CONFIG_URL" ] && curl -Lo /uaa/uaa.yml $UAA_CONFIG_URL
 
+export CATALINA_OPTS="$CATALINA_OPTS -Xdebug -Xrunjdwp:transport=dt_socket,address=3000,server=y,suspend=n"
+
 if [ "$EXPOSE_JMX_METRICS" == "true" ]; then
-  export CATALINA_OPTS="$CATALINA_OPTS -javaagent:/jmx_prometheus_javaagent.jar=$EXPOSE_JMX_BIND_ADDRESS:$EXPOSE_JMX_METRICS_PORT:$EXPOSE_JMX_METRICS_CONFIG"
+  export CATALINA_OPTS="-Xdebug -Xrunjdwp:transport=dt_socket,address=3000,server=y,suspend=n $CATALINA_OPTS -javaagent:/jmx_prometheus_javaagent.jar=$EXPOSE_JMX_BIND_ADDRESS:$EXPOSE_JMX_METRICS_PORT:$EXPOSE_JMX_METRICS_CONFIG"
 fi
 
 ($CATALINA_HOME/bin/catalina.sh run) & JAVAPID=$!

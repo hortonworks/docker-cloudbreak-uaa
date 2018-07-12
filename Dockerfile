@@ -28,5 +28,6 @@ ADD https://s3.eu-central-1.amazonaws.com/hortonworks-prometheus/jmx_prometheus_
 ADD jmx-config.yaml /jmx-config.yaml
 
 EXPOSE 8080
+EXPOSE 3000
 
 CMD ["/tmp/run.sh"]
