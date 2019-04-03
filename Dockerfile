@@ -5,7 +5,7 @@ ENV UAA_CONFIG_PATH /uaa
 ENV CATALINA_HOME /tomcat
 
 ADD run.sh /tmp/
-ADD dev.yml /uaa/uaa.yml
+ADD conf/dev.yml /uaa/uaa.yml
 RUN chmod +x /tmp/run.sh
 
 RUN wget -q https://archive.apache.org/dist/tomcat/tomcat-8/v8.0.28/bin/apache-tomcat-8.0.28.tar.gz
@@ -21,13 +21,17 @@ RUN rm -rf /tomcat/webapps/*
 ADD https://github.com/sequenceiq/uaa/releases/download/3.6.5/cloudfoundry-identity-uaa-3.6.5.war /tomcat/webapps/
 RUN mv /tomcat/webapps/cloudfoundry-identity-uaa-3.6.5.war /tomcat/webapps/ROOT.war
 
-ADD postgresql-42.0.0.jar /tomcat/lib/
+ADD dist/postgresql-42.0.0.jar /tomcat/lib/
+
+RUN mkdir -p /tomcat/webapps/ROOT && cd /tomcat/webapps/ROOT && unzip ../ROOT.war
+ADD conf/log4j.properties /tomcat/webapps/ROOT/WEB-INF/classes/log4j.properties
+RUN rm -rf /tomcat/webapps/ROOT.war
 
 #VOLUME ["/uaa"]
 
 # add jmx exporter
-ADD https://s3.eu-central-1.amazonaws.com/hortonworks-prometheus/jmx_prometheus_javaagent-0.10.jar /jmx_prometheus_javaagent.jar
-ADD jmx-config.yaml /jmx-config.yaml
+ADD dist/jmx_prometheus_javaagent-0.10.jar /jmx_prometheus_javaagent.jar
+ADD conf/jmx-config.yaml /jmx-config.yaml
 
 EXPOSE 8080
 
