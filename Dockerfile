@@ -21,7 +21,9 @@ RUN rm -rf /tomcat/webapps/*
 ADD dist/cloudfoundry-identity-uaa-4.19.0.war /tomcat/webapps/
 RUN mv /tomcat/webapps/cloudfoundry-identity-uaa-4.19.0.war /tomcat/webapps/ROOT.war
 
-ADD conf/log4j.properties /tomcat/conf/log4j.properties
+RUN mkdir -p /tomcat/webapps/ROOT && cd /tomcat/webapps/ROOT && unzip ../ROOT.war
+ADD conf/log4j.properties /tomcat/webapps/ROOT/WEB-INF/classes/log4j.properties
+RUN rm -rf /tomcat/webapps/ROOT.war
 
 #VOLUME ["/uaa"]
 
