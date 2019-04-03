@@ -5,7 +5,7 @@ ENV UAA_CONFIG_PATH /uaa
 ENV CATALINA_HOME /tomcat
 
 ADD run.sh /tmp/
-ADD dev.yml /uaa/uaa.yml
+ADD conf/dev.yml /uaa/uaa.yml
 RUN chmod +x /tmp/run.sh
 
 RUN wget -q https://archive.apache.org/dist/tomcat/tomcat-8/v8.0.28/bin/apache-tomcat-8.0.28.tar.gz
@@ -18,14 +18,16 @@ RUN mkdir /tomcat
 RUN mv apache-tomcat-8.0.28/* /tomcat
 RUN rm -rf /tomcat/webapps/*
 
-ADD cloudfoundry-identity-uaa-4.19.0.war /tomcat/webapps/
+ADD dist/cloudfoundry-identity-uaa-4.19.0.war /tomcat/webapps/
 RUN mv /tomcat/webapps/cloudfoundry-identity-uaa-4.19.0.war /tomcat/webapps/ROOT.war
+
+ADD conf/log4j.properties /tomcat/conf/log4j.properties
 
 #VOLUME ["/uaa"]
 
 # add jmx exporter
-ADD https://s3.eu-central-1.amazonaws.com/hortonworks-prometheus/jmx_prometheus_javaagent-0.10.jar /jmx_prometheus_javaagent.jar
-ADD jmx-config.yaml /jmx-config.yaml
+ADD dist/jmx_prometheus_javaagent-0.10.jar /jmx_prometheus_javaagent.jar
+ADD conf/jmx-config.yaml /jmx-config.yaml
 
 EXPOSE 8080
 
