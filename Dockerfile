@@ -23,7 +23,9 @@ RUN mv /tomcat/webapps/cloudfoundry-identity-uaa-3.6.5.war /tomcat/webapps/ROOT.
 
 ADD dist/postgresql-42.0.0.jar /tomcat/lib/
 
-ADD conf/log4j.properties /tomcat/conf/log4j.properties
+RUN mkdir -p /tomcat/webapps/ROOT && cd /tomcat/webapps/ROOT && unzip ../ROOT.war
+ADD conf/log4j.properties /tomcat/webapps/ROOT/WEB-INF/classes/log4j.properties
+RUN rm -rf /tomcat/webapps/ROOT.war
 
 #VOLUME ["/uaa"]
 
