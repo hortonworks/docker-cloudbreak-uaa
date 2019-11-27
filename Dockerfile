@@ -18,8 +18,8 @@ RUN mkdir /tomcat
 RUN mv apache-tomcat-8.0.28/* /tomcat
 RUN rm -rf /tomcat/webapps/*
 
-ADD https://github.com/sequenceiq/uaa/releases/download/3.6.5/cloudfoundry-identity-uaa-3.6.5.war /tomcat/webapps/
-RUN mv /tomcat/webapps/cloudfoundry-identity-uaa-3.6.5.war /tomcat/webapps/ROOT.war
+ADD dist/cloudfoundry-identity-uaa-4.30.0.war /tomcat/webapps/
+RUN mv /tomcat/webapps/cloudfoundry-identity-uaa-4.30.0.war /tomcat/webapps/ROOT.war
 
 ADD dist/postgresql-42.0.0.jar /tomcat/lib/
 
